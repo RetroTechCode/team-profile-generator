@@ -55,11 +55,61 @@ function addIntern(data) {
 };
 
 function addEngineer(data) {
-    console.log(data);
+    inquirer.prompt([
+        {
+            type: 'input',
+            message: `What is the engineer's name?`,
+            name: 'name'
+        },
+        {
+            type: 'input',
+            message: `What is the engineer's employee ID?`,
+            name: 'id'
+        },
+        {
+            type: 'input',
+            message: `What is the engineer's email address?`,
+            name: 'email'
+        },
+        {
+            type: 'input',
+            message: `What is the engineer's GitHub username?`,
+            name: 'github'
+        }
+    ])
+    .then((response) => {
+        const engineer = new Engineer(response.name, response.id, response.email, response.github);
+        console.log(engineer);
+    })
 };
 
 function addManager(data) {
-    console.log(data);
+    inquirer.prompt([
+        {
+            type: 'input',
+            message: `What is the manager's name?`,
+            name: 'name'
+        },
+        {
+            type: 'input',
+            message: `What is the manager's employee ID?`,
+            name: 'id'
+        },
+        {
+            type: 'input',
+            message: `What is the manager's email address?`,
+            name: 'email'
+        },
+        {
+            type: 'input',
+            message: `What is the manager's office number?`,
+            name: 'officeNum'
+        }
+    ])
+    .then((response) => {
+        const manager = new Manager(response.name, response.id, response.email, response.officeNum);
+        console.log(manager);
+    })
 };
 
 buildTeam();
