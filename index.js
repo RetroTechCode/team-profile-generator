@@ -3,6 +3,8 @@ const fs = require('fs');
 const Intern = require('./lib/Intern.js');
 const Engineer = require('./lib/Engineer.js');
 const Manager = require('./lib/Manager.js');
+const generateHtml = require('./src/generateHtml.js');
+const team = [];
 
 function buildTeam () {
     inquirer.prompt([
@@ -21,7 +23,7 @@ function buildTeam () {
     } else if (data.employeeType === 'Manager') {
         addManager(data);
     } else {
-        console.log('COMPLETE');
+        teamComplete(team);
     }}
 )};
 
@@ -51,6 +53,8 @@ function addIntern(data) {
     .then((response) => {
         const intern = new Intern(response.name, response.id, response.email, response.school);
         console.log(intern);
+        team.push(intern);
+        buildTeam();
     })
 };
 
@@ -80,6 +84,8 @@ function addEngineer(data) {
     .then((response) => {
         const engineer = new Engineer(response.name, response.id, response.email, response.github);
         console.log(engineer);
+        team.push(engineer);
+        buildTeam();
     })
 };
 
@@ -109,7 +115,13 @@ function addManager(data) {
     .then((response) => {
         const manager = new Manager(response.name, response.id, response.email, response.officeNum);
         console.log(manager);
+        team.push(manager);
+        buildTeam();
     })
 };
+
+function teamComplete(team) {
+    generateHtml(team);
+}
 
 buildTeam();
