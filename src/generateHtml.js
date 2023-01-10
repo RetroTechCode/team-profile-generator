@@ -8,15 +8,21 @@ function generateCards(team) {
     for (let i = 0; i < team.length; i++) {
         if (team[i].getRole() === 'Intern') {
             let card = createInternCard(team[i]);
-            cards.push(card);
-        } else if (team[i].getRole() === 'Engineer') {
-            let card = createEngineerCard(team[i]);
-            cards.push(card);
-        } else {
-            let card = createManagerCard(team[i]);
-            cards.push(card);
+            cards.unshift(card);
         }
-    } 
+    };
+    for (let i = 0; i < team.length; i++) {
+        if (team[i].getRole() === 'Engineer') {
+            let card = createEngineerCard(team[i]);
+            cards.unshift(card);
+        }
+    };
+    for (let i = 0; i < team.length; i++) {
+        if (team[i].getRole() === 'Manager') {
+            let card = createManagerCard(team[i]);
+            cards.unshift(card);
+        }
+    }
 
     renderPage(cards);
 }
