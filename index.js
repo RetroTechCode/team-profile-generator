@@ -125,7 +125,7 @@ function addManager(data) {
 function teamComplete(team) {
     const generatedHtml = generateHtml(team);
 
-    fs.writeFile('index.html', generatedHtml, (err) =>
+    fs.writeFile('./dist/index.html', generatedHtml, (err) =>
         err ? console.log(err) : console.log('Successfully generated your Team Profile!'))
 }
 
