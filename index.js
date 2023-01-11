@@ -6,7 +6,7 @@ const Manager = require('./lib/Manager.js');
 const generateHtml = require('./src/generateHtml.js');
 const team = [];
 
-function buildTeam () {
+function buildTeam() {
     inquirer.prompt([
         {
             type: 'list',
@@ -15,17 +15,19 @@ function buildTeam () {
             name: 'employeeType'
         }
     ])
-    .then((data) => {
-    if (data.employeeType === 'Intern') {
-        addIntern(data);
-    } else if (data.employeeType === 'Engineer') {
-        addEngineer(data);
-    } else if (data.employeeType === 'Manager') {
-        addManager(data);
-    } else {
-        teamComplete(team);
-    }}
-)};
+        .then((data) => {
+            if (data.employeeType === 'Intern') {
+                addIntern(data);
+            } else if (data.employeeType === 'Engineer') {
+                addEngineer(data);
+            } else if (data.employeeType === 'Manager') {
+                addManager(data);
+            } else {
+                teamComplete(team);
+            }
+        }
+        )
+};
 
 function addIntern(data) {
     inquirer.prompt([
@@ -50,12 +52,12 @@ function addIntern(data) {
             name: 'school'
         }
     ])
-    .then((response) => {
-        const intern = new Intern(response.name, response.id, response.email, response.school);
-        console.log(intern);
-        team.push(intern);
-        buildTeam();
-    })
+        .then((response) => {
+            const intern = new Intern(response.name, response.id, response.email, response.school);
+            console.log(intern);
+            team.push(intern);
+            buildTeam();
+        })
 };
 
 function addEngineer(data) {
@@ -81,12 +83,12 @@ function addEngineer(data) {
             name: 'github'
         }
     ])
-    .then((response) => {
-        const engineer = new Engineer(response.name, response.id, response.email, response.github);
-        console.log(engineer);
-        team.push(engineer);
-        buildTeam();
-    })
+        .then((response) => {
+            const engineer = new Engineer(response.name, response.id, response.email, response.github);
+            console.log(engineer);
+            team.push(engineer);
+            buildTeam();
+        })
 };
 
 function addManager(data) {
@@ -112,16 +114,19 @@ function addManager(data) {
             name: 'officeNum'
         }
     ])
-    .then((response) => {
-        const manager = new Manager(response.name, response.id, response.email, response.officeNum);
-        console.log(manager);
-        team.push(manager);
-        buildTeam();
-    })
+        .then((response) => {
+            const manager = new Manager(response.name, response.id, response.email, response.officeNum);
+            console.log(manager);
+            team.push(manager);
+            buildTeam();
+        })
 };
 
 function teamComplete(team) {
-    generateHtml(team);
+    const generatedHtml = generateHtml(team);
+
+    fs.writeFile('index.html', generatedHtml, (err) =>
+        err ? console.log(err) : console.log('Successfully generated your Team Profile!'))
 }
 
 buildTeam();

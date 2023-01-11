@@ -24,8 +24,9 @@ function generateCards(team) {
         }
     }
 
-    renderPage(cards);
-}
+    const finalRender = renderPage(cards);
+    return finalRender;
+};
 
 function createInternCard(employee) {
     console.log(employee.getRole());
@@ -33,7 +34,7 @@ function createInternCard(employee) {
     <section
         style="background-color:rgb(25, 144, 255); color: white; padding: 6px 10px 0; margin: 0; height: 70px;">
         <p style="font-weight: bold; margin: 0 0 5px;">${employee.name}</p>
-        <p style="margin: 0 0 5px;"><i class="bi bi-cup-hot-fill"></i>${employee.getRole()}</p>
+        <p style="margin: 0 0 5px;"><i class="bi bi-cup-hot-fill"></i> ${employee.getRole()}</p>
     </section>
     <div class="card-body bg-light" style="padding: 32px 16px;">
         <div class="d-block" style="margin: 0;">
@@ -46,14 +47,14 @@ function createInternCard(employee) {
         </div>
     </div>
 </div>`
-}
+};
 
 function createEngineerCard(employee) {
     return `<div class="card" style="width: 18rem; border-radius: 0; box-shadow: 4px 4px 4px rgb(185, 185, 185);">
         <section
             style="background-color:rgb(25, 144, 255); color: white; padding: 6px 10px 0; margin: 0; height: 70px;">
             <p style="font-weight: bold; margin: 0 0 5px;">${employee.name}</p>
-            <p style="margin: 0 0 5px;"><i class="bi bi-eyeglasses"></i>${employee.getRole()}</p>
+            <p style="margin: 0 0 5px;"><i class="bi bi-eyeglasses"></i> ${employee.getRole()}</p>
         </section>
         <div class="card-body bg-light" style="padding: 32px 16px;">
             <div class="d-block" style="margin: 0;">
@@ -66,14 +67,14 @@ function createEngineerCard(employee) {
             </div>
         </div>
     </div>`
-}
+};
 
 function createManagerCard(employee) {
     return `<div class="card" style="width: 18rem; border-radius: 0; box-shadow: 4px 4px 4px rgb(185, 185, 185);">
         <section
             style="background-color:rgb(25, 144, 255); color: white; padding: 6px 10px 0; margin: 0; height: 70px;">
             <p style="font-weight: bold; margin: 0 0 5px;">${employee.name}</p>
-            <p style="margin: 0 0 5px;"><i class="bi bi-mortarboard-fill"></i>${employee.getRole()}</p>
+            <p style="margin: 0 0 5px;"><i class="bi bi-mortarboard-fill"></i> ${employee.getRole()}</p>
         </section>
         <div class="card-body bg-light" style="padding: 32px 16px;">
             <div class="d-block" style="margin: 0;">
@@ -86,10 +87,9 @@ function createManagerCard(employee) {
             </div>
         </div>
     </div>`
-}
+};
 
 function renderPage(cards) {
-    console.log(cards);
     return `<!DOCTYPE html>
     <html lang="en">
     
@@ -115,6 +115,6 @@ function renderPage(cards) {
     
     </html>
     `
-}
+};
 
 module.exports = generateCards;
