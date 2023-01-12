@@ -54,7 +54,6 @@ function addIntern(data) {
     ])
         .then((response) => {
             const intern = new Intern(response.name, response.id, response.email, response.school);
-            console.log(intern);
             team.push(intern);
             buildTeam();
         })
@@ -85,7 +84,6 @@ function addEngineer(data) {
     ])
         .then((response) => {
             const engineer = new Engineer(response.name, response.id, response.email, response.github);
-            console.log(engineer);
             team.push(engineer);
             buildTeam();
         })
@@ -116,7 +114,6 @@ function addManager(data) {
     ])
         .then((response) => {
             const manager = new Manager(response.name, response.id, response.email, response.officeNum);
-            console.log(manager);
             team.push(manager);
             buildTeam();
         })

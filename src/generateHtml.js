@@ -4,7 +4,6 @@ const Engineer = require('../lib/Engineer.js');
 const cards = [];
 
 function generateCards(team) {
-    console.log(team);
     for (let i = 0; i < team.length; i++) {
         if (team[i].getRole() === 'Intern') {
             let card = createInternCard(team[i]);
