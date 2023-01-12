@@ -63,7 +63,7 @@ function createEngineerCard(employee) {
                 <p style="height: 50px; background-color: white; border:solid 1px rgb(185, 185, 185); margin: 0; padding: 12px 4px;">
                     Email: ${employee.email}</p>
                 <p style="height: 50px; background-color: white; border:solid 1px rgb(185, 185, 185); margin: 0; padding: 12px 4px;">
-                    GitHub: ${employee.getGithub()}</p>
+                    GitHub: <a href=https://github.com/${employee.github}>${employee.github}</a></p>
             </div>
         </div>
     </div>`
