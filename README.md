@@ -25,19 +25,20 @@ And depending on the employee's role it may also include:
   
 ## Installation
 1. Choose a location for the application on your computer and create an empty directory
-1. Download or clone the repo to the previously selected location
-2. Within the root of the repo run "npm i"
+2. Download or clone the repo to the previously selected location
+3. Within the root of the repo run "npm i"
   
 ## Usage
 1. Type "node ." into a terminal running in the root directory of the repo
 2. Answer all of the prompts until all of your employees have been accounted for.
 3. The application will automatically generate your index.html within the "dist" directory!
 
+[Example usage and testing video walkthrough](https://drive.google.com/file/d/19e1GOK8DgocTtWLP5DmsDNiEYbS11Fdc/view)
+
 ## Testing
 Run "npm test" within the root directory of the application. The tests will automatically run and display the results.
   
 ## Questions
-
 
 **If you have any additional questions please reach out to me here**:
 - Github: [RetroTechCode](https://github.com/RetroTechCode)
