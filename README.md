@@ -1,6 +1,6 @@
 # Team Profile Generator
 
-
+![Example of a landing page generated from the application](./assets/images/generatedHtml.png)
 
 ## Table of Contents
 - [Description](#description)
