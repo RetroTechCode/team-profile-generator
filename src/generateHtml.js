@@ -29,7 +29,6 @@ function generateCards(team) {
 };
 
 function createInternCard(employee) {
-    console.log(employee.getRole());
     return `<div class="card" style="width: 18rem; border-radius: 0; box-shadow: 4px 4px 4px rgb(185, 185, 185);">
     <section
         style="background-color:rgb(25, 144, 255); color: white; padding: 6px 10px 0; margin: 0; height: 70px;">
